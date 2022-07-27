@@ -1,0 +1,79 @@
+<!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()"></form> -->
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<!-- <form action="action_page.php" method="post"> -->
+    <div class="imgcontainer">
+      <img src="/assets/img4.jpg" alt="Avatar" class="avatar">
+    </div>
+  
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required formControlName = "uname">
+      <div *ngIf="f ['uname'].touched" class="alert alert-danger">
+        <div *ngIf="f['uname'].invalid">Username is required</div>
+      </div>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required formControlName = "psw">
+      <div *ngIf="f['psw'].touched" class="alert alert-danger">
+        <div *ngIf="f['psw'].invalid">Password is required</div>
+      </div>
+      
+  
+      <button type="submit">Login</button>
+     
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+</form>
+<tr *ngFor="let users of users">
+  
+  
+  <td>{{users.id}}</td>
+  
+  
+  <td>{{users.uname}}</td>
+
+
+
+
+
+  <td>{{users.password}}</td>
+  <br>
+  <!--Change it,,,,-->
+</tr><br>
+<div *ngIf="number % 2 == 0; else showOdd">
+
+  Even number {{ number | currency }}
+
+</div>
+
+<ng-template #showOdd>
+
+`Odd number {{ number | currency }}
+
+</ng-template>
+<button type="submit" (click)="getUser()">Display</button>
+<button type="submit" (click)="deleteUser(23)">Delete</button>
+<!-- <button type="submit">Login</button>
+<button type="submit">Login</button> -->
+<table class="table">
+<tr *ngFor="let users of users">
+  
+  
+  <td> id : {{users.id}} </td>
+  
+  
+  <td> name : {{users.uname}} </td>
+
+
+
+
+  <td> password : {{users.password}}</td>
+  <button type="submit" (click)="deleteUser(users.id)">Delete</button>
+  <br>
+  <!--Change it,,,,-->
+</tr><br>
+</table>
